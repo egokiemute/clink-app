@@ -28,12 +28,6 @@ export default function NotFound() {
           >
             Back home
           </Link>
-          <Link
-            href="/"
-            className="flex min-h-12 items-center justify-center rounded-full bg-secondary px-8 py-3 text-center text-[16px] tracking-[-0.01em] text-primary"
-          >
-            Visit homepage
-          </Link>
         </div>
       </div>
     </main>
