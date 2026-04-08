@@ -13,6 +13,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       images: [`${siteUrl}/opengraph-image`],
     },
+    {
+      url: `${siteUrl}/start`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/documentation`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
   ];
 }
-

@@ -53,11 +53,11 @@ export default function Home() {
             </span>
           </Link>
           <Link
-            href="https://calendar.app.google/ag7TuXSwPWTjCwwx9"
+            href="/start"
             className="hidden md:inline-block rounded-full bg-primary py-2 px-8 w-fit text-xs text-center my-auto tracking-[0.18em] text-tertiary"
           >
             <span className="text-white text-[17.2px] tracking-[-1%] leading-[25.8px]">
-              Book a demo
+              Get started
             </span>
           </Link>
         </div>
@@ -76,11 +76,11 @@ export default function Home() {
 
           <div className="mt-8 flex items-center gap-4">
             <Link
-              href="https://calendar.app.google/ag7TuXSwPWTjCwwx9"
+              href="/start"
               className="rounded-full bg-primary py-3 px-8 w-fit text-xs text-center my-auto tracking-[0.18em] text-tertiary"
             >
               <span className="text-white text-[17.2px] tracking-[-1%] leading-[25.8px]">
-                Book a demo
+                Get started
               </span>
             </Link>
             <Link

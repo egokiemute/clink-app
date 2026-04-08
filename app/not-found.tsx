@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <main className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-center overflow-hidden px-4 py-10 sm:px-6 lg:px-10">
       <div
-        className="pointer-events-none absolute left-1/2 -top-40 h-[24rem] w-[24rem] -translate-x-1/2 rounded-full blur-3xl"
+        className="pointer-events-none absolute left-1/2 -top-40 h-96 w-[24rem] -translate-x-1/2 rounded-full blur-3xl"
         style={{
           background:
             "linear-gradient(180deg, rgba(122, 215, 255, 0.35) 0%, rgba(255, 193, 21, 0.35) 100%)",
