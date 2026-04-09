@@ -11,6 +11,13 @@ export function proxy(request: NextRequest) {
       return NextResponse.rewrite(url);
     }
   }
+  // deck.tryclink.com → /documentation
+  if (hostname === "deck.tryclink.com") {
+    if (url.pathname === "/") {
+      url.pathname = "/deck";
+      return NextResponse.rewrite(url);
+    }
+  }
 
   // pay.tryclink.com/{id} → internally served from /pay/{id}
   // e.g. pay.tryclink.com/pay_abc123 → /pay/pay_abc123
