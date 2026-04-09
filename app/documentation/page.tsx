@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 type NavItem = {
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
 
 function InlineCode({ children }: { children: React.ReactNode }) {
   return (
-    <code className="rounded-md border border-border bg-surface px-1.5 py-0.5 text-[0.95em] text-primary">
+    <code className="rounded-md border border-border bg-tertiary px-1.5 py-0.5 text-[0.95em] text-primary">
       {children}
     </code>
   );
@@ -104,13 +105,13 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-border">
       <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse text-left text-sm text-primary/78">
-          <thead className="bg-surface">
+        <table className="min-w-full border-collapse text-left text-sm text-black/78">
+          <thead className="bg-primary">
             <tr>
               {headers.map((header) => (
                 <th
                   key={header}
-                  className="border-b border-border px-4 py-3 font-medium text-primary"
+                  className="border-b border-border px-4 py-3 font-medium text-white!"
                 >
                   {header}
                 </th>
@@ -148,8 +149,8 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24 border-t border-border pt-10">
-      <h2 className="text-3xl tracking-[-0.05em] text-primary">{title}</h2>
-      <div className="mt-5 space-y-5 text-base leading-8 text-primary/78">
+      <h2 className="text-3xl tracking-[-0.05em] text-black">{title}</h2>
+      <div className="mt-5 space-y-5 text-base leading-8 text-black/78">
         {children}
       </div>
     </section>
@@ -167,8 +168,8 @@ function SidebarItem({
     <div>
       <a
         href={`#${item.id}`}
-        className={`block rounded-xl px-3 py-2 text-sm transition hover:bg-surface hover:text-primary ${
-          nested ? "text-primary/50" : "text-primary/78"
+        className={`block rounded-xl px-3 py-2 text-sm transition hover:bg-surface hover:text-tetiary ${
+          nested ? "text-black/50" : "text-black/78"
         }`}
       >
         {item.label}
@@ -191,22 +192,28 @@ export default function DocumentationPage() {
         <div className="mx-auto flex w-full max-w-360 items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8">
             <Link href="/" className="text-lg font-semibold tracking-[-0.04em]">
-              Clink
+              <Image
+                src="/assets/logo.svg"
+                alt="Clink"
+                width={90}
+                height={36}
+                priority
+              />
             </Link>
-            <nav className="hidden items-center gap-6 text-sm text-primary/58 md:flex">
-              <Link href="/start" className="transition hover:text-primary">
+            <nav className="hidden items-center gap-6 text-sm text-black/58 md:flex">
+              <Link href="/start" className="transition hover:text-black">
                 Get Started
               </Link>
-              <Link href="/documentation" className="text-primary">
+              <Link
+                href="/documentation"
+                className="text-black/58 transition hover:text-black"
+              >
                 Documentation
               </Link>
             </nav>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="hidden min-w-60 items-center rounded-xl border border-border bg-surface px-4 py-2 text-sm text-primary/45 md:flex">
-              Search Documentation
-            </div>
             <Link
               href="/start"
               className="rounded-xl border border-primary/10 bg-primary px-4 py-2 text-sm text-white! transition hover:opacity-95"
@@ -223,7 +230,7 @@ export default function DocumentationPage() {
             <div className="space-y-7">
               {sidebarGroups.map((group) => (
                 <section key={group.title}>
-                  <h2 className="mb-3 px-3 text-sm font-medium text-primary">
+                  <h2 className="mb-3 px-3 text-sm font-medium text-black">
                     {group.title}
                   </h2>
                   <div className="space-y-1">
@@ -243,13 +250,13 @@ export default function DocumentationPage() {
               <p className="text-sm uppercase tracking-[0.18em] text-primary/42">
                 Documentation
               </p>
-              <h1 className="mt-5 text-4xl tracking-[-0.06em] text-primary sm:text-5xl lg:text-6xl">
+              <h1 className="mt-5 text-4xl tracking-[-0.06em] text-black sm:text-5xl lg:text-6xl">
                 Clink SDK Documentation
               </h1>
-              <p className="mt-5 text-sm text-primary/45">
+              <p className="mt-5 text-sm text-black/45">
                 Last updated April 8, 2026
               </p>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-primary/78">
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-black/78">
                 This guide is focused on developers integrating{" "}
                 <strong className="text-primary">clink-sdk</strong>. It keeps
                 the docs centered on what your customers need to ship payments,
@@ -266,7 +273,7 @@ export default function DocumentationPage() {
                 </p>
                 <Link
                   href="/start"
-                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-primary/10 bg-primary px-5 py-3 text-sm text-tertiary transition hover:opacity-95"
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-primary/10 bg-primary px-5 py-3 text-sm text-white! transition hover:opacity-95"
                 >
                   Apply for an API key
                 </Link>

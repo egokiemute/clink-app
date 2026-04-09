@@ -42,7 +42,7 @@ export default function StartForm() {
 
       if (!response.ok) {
         setErrorMessage(
-          data?.message ?? "Something went wrong. Please try again."
+          data?.message ?? "Something went wrong. Please try again.",
         );
         return;
       }
@@ -65,7 +65,7 @@ export default function StartForm() {
       <div className="flex flex-col gap-2">
         <label
           htmlFor="name"
-          className="text-sm font-medium tracking-[-0.01em] text-primary"
+          className="text-sm font-medium tracking-[-0.01em] text-black"
         >
           Name
         </label>
@@ -79,7 +79,7 @@ export default function StartForm() {
           onChange={(event) =>
             setForm((current) => ({ ...current, name: event.target.value }))
           }
-          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-primary outline-none transition focus:border-primary/35"
+          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-primary/35"
           placeholder="John Doe"
         />
       </div>
@@ -87,7 +87,7 @@ export default function StartForm() {
       <div className="flex flex-col gap-2">
         <label
           htmlFor="email"
-          className="text-sm font-medium tracking-[-0.01em] text-primary"
+          className="text-sm font-medium tracking-[-0.01em] text-black"
         >
           Email
         </label>
@@ -101,7 +101,7 @@ export default function StartForm() {
           onChange={(event) =>
             setForm((current) => ({ ...current, email: event.target.value }))
           }
-          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-primary outline-none transition focus:border-primary/35"
+          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-primary/35"
           placeholder="john@acme.com"
         />
       </div>
@@ -109,7 +109,7 @@ export default function StartForm() {
       <div className="flex flex-col gap-2">
         <label
           htmlFor="company"
-          className="text-sm font-medium tracking-[-0.01em] text-primary"
+          className="text-sm font-medium tracking-[-0.01em] text-black"
         >
           Company
         </label>
@@ -122,13 +122,13 @@ export default function StartForm() {
           onChange={(event) =>
             setForm((current) => ({ ...current, company: event.target.value }))
           }
-          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-primary outline-none transition focus:border-primary/35"
+          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-primary/35"
           placeholder="Acme Inc"
         />
       </div>
 
       {successMessage ? (
-        <p className="rounded-2xl bg-secondary px-4 py-3 text-sm text-primary">
+        <p className="rounded-2xl bg-secondary px-4 py-3 text-sm text-black">
           {successMessage}
         </p>
       ) : null}
@@ -149,4 +149,3 @@ export default function StartForm() {
     </form>
   );
 }
-
