@@ -53,6 +53,8 @@ export function PaymentPending({ payment }: { payment: Payment }) {
         </p>
       </div>
 
+      {payment.devMode && <DemoCompleteButton paymentId={payment.id} />}
+
       <div className="flex items-center justify-center gap-2 text-sm">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="shrink-0 text-primary/40">
           <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
@@ -62,8 +64,6 @@ export function PaymentPending({ payment }: { payment: Payment }) {
           Expires in <span className="font-medium"><Countdown expiresAt={payment.expiresAt} /></span>
         </span>
       </div>
-
-      {payment.devMode && <DemoCompleteButton paymentId={payment.id} />}
     </div>
   );
 }
