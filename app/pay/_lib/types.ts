@@ -23,4 +23,5 @@ export interface Payment {
   successUrl?: string;
   cancelUrl?: string;
   stellarTxHash?: string;
+  devMode?: boolean;
 }

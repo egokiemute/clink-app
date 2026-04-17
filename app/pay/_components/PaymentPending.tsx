@@ -2,6 +2,7 @@ import type { Payment } from "../_lib/types";
 import { CopyButton } from "./CopyButton";
 import { Countdown } from "./Countdown";
 import { QRCode } from "./QRCode";
+import { DemoCompleteButton } from "./DemoCompleteButton";
 
 export function PaymentPending({ payment }: { payment: Payment }) {
   const shortAddress = `${payment.stellarAddress.slice(0, 6)}...${payment.stellarAddress.slice(-6)}`;
@@ -61,6 +62,8 @@ export function PaymentPending({ payment }: { payment: Payment }) {
           Expires in <span className="font-medium"><Countdown expiresAt={payment.expiresAt} /></span>
         </span>
       </div>
+
+      {payment.devMode && <DemoCompleteButton paymentId={payment.id} />}
     </div>
   );
 }
