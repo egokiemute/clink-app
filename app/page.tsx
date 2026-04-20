@@ -20,10 +20,10 @@ export default function Home() {
   return (
     <>
       <div className="p-2 md:p-5 bg-white! overflow-hidden min-h-screen flex flex-col">
-        <main className="relative z-10 mx-auto flex w-full flex-1 flex-col px-4 md:px-6 py-6 lg:px-10 lg:py-8 bg-surface/80">
+        <main className="relative z-10 mx-auto flex w-full flex-1 flex-col px-4 md:px-6 py-6 lg:px-10 lg:py-8 bg-[#FEF2F0] rounded-sm">
           <header className="md:mb-12 flex items-center justify-between z-50 bg-white rounded-full py-3 px-4 md:px-6 w-full max-w-7xl mx-auto">
             <Image
-              src="/assets/logo.svg"
+              src="/assets/new-logo.svg"
               alt="Clink"
               width={90}
               height={36}
@@ -52,13 +52,12 @@ export default function Home() {
           <section className="mx-auto max-w-5xl pt-20 z-50">
             <div className="max-w-2xl flex items-center flex-col justify-center text-center">
               <h1 className="max-w-1.5xl text-4xl md:text-5xl font-regular tracking-[-0.04em] text-black sm:text-6xl">
-                Accept Crypto Payments Like Cards.
+                Let customers pay with stablecoins.
               </h1>
 
               <p className="mt-6 max-w-xl text-md md:text-lg leading-7 tracking-[-1%] text-[#757575] sm:text-xl">
-                Integrate a drop-in crypto checkout in minutes. Let your users
-                pay with USDC directly from wallets or exchanges while Clink
-                manages addresses, networks, and real-time confirmations.
+                Accept stablecoin payments and settle locally with Clink, Clink
+                gives you everything you need to build global payments.
               </p>
 
               <div className="mt-8 flex items-center gap-4">
