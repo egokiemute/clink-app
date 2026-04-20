@@ -6,7 +6,7 @@ import type { Payment, Developer } from "./_lib/types";
 
 const STATUS_COLORS: Record<string, string> = {
   pending: "bg-amber-100 text-amber-700",
-  confirmed: "bg-blue-100 text-blue-700",
+  confirmed: "bg-[#CFEADC] text-[#1F6B3F]",
   settled: "bg-green-100 text-green-700",
   expired: "bg-surface-strong text-primary/50",
   failed: "bg-red-100 text-red-700",

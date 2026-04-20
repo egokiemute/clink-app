@@ -216,7 +216,7 @@ export default function DocumentationPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/start"
-              className="rounded-xl border border-primary/10 bg-primary px-4 py-2 text-sm text-white! transition hover:opacity-95"
+              className="rounded-xl border border-brand/10 bg-brand px-4 py-2 text-sm text-white! transition hover:opacity-95"
             >
               Get API key
             </Link>
@@ -273,7 +273,7 @@ export default function DocumentationPage() {
                 </p>
                 <Link
                   href="/start"
-                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-primary/10 bg-primary px-5 py-3 text-sm text-white! transition hover:opacity-95"
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-brand/10 bg-brand px-5 py-3 text-sm text-white! transition hover:opacity-95"
                 >
                   Apply for an API key
                 </Link>
@@ -773,7 +773,7 @@ try {
                 </Link>
                 <Link
                   href="/start"
-                  className="flex-1 rounded-2xl border border-primary/10 bg-primary px-5 py-5 transition hover:opacity-95"
+                  className="flex-1 rounded-2xl border border-brand/10 bg-brand px-5 py-5 transition hover:opacity-95"
                 >
                   <p className="text-xs uppercase tracking-[0.18em] text-secondary">
                     Next
@@ -812,7 +812,7 @@ try {
                   <p>Need access?</p>
                   <Link
                     href="/start"
-                    className="inline-flex rounded-xl border border-primary/10 bg-primary px-4 py-2 text-white! transition hover:opacity-95"
+                    className="inline-flex rounded-xl border border-brand/10 bg-brand px-4 py-2 text-white! transition hover:opacity-95"
                   >
                     Get started
                   </Link>

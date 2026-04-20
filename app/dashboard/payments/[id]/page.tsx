@@ -126,7 +126,7 @@ export default function PaymentDetailPage() {
             <ol className="space-y-4">
               {timeline.map((step, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${step.done ? "bg-primary" : "border border-border bg-white"}`}>
+                  <span className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${step.done ? "bg-brand" : "border border-border bg-white"}`}>
                     {step.done && (
                       <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true">
                         <path d="M1.5 4L3 5.5L6.5 2" stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />

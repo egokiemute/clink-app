@@ -59,7 +59,7 @@ export default function DashboardLoginPage() {
                 value={secretKey}
                 onChange={(e) => setSecretKey(e.target.value)}
                 placeholder="clink_sk_..."
-                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 font-mono text-sm text-primary outline-none transition focus:border-primary/35"
+                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 font-mono text-sm text-primary outline-none transition focus:border-brand/50"
               />
             </div>
 
@@ -70,7 +70,7 @@ export default function DashboardLoginPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-1 flex min-h-12 items-center justify-center rounded-full bg-primary px-8 py-3 text-[15px] tracking-[-0.01em] text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-1 flex min-h-12 items-center justify-center rounded-full bg-brand px-8 py-3 text-[15px] tracking-[-0.01em] text-white transition disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? "Verifying..." : "Sign in"}
             </button>

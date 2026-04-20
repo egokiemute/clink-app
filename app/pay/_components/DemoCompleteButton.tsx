@@ -35,7 +35,7 @@ export function DemoCompleteButton({ paymentId }: { paymentId: string }) {
         <button
           onClick={handleComplete}
           disabled={loading}
-          className="w-full rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-full rounded-full bg-brand px-6 py-2.5 text-sm font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-60"
         >
           {loading ? "Processing..." : "Complete Demo Payment"}
         </button>

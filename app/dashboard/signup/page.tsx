@@ -84,7 +84,7 @@ export default function DashboardSignupPage() {
 
             <button
               onClick={() => router.replace("/dashboard")}
-              className="mt-6 flex w-full min-h-12 items-center justify-center rounded-full bg-primary px-8 py-3 text-[15px] tracking-[-0.01em] text-white transition"
+              className="mt-6 flex w-full min-h-12 items-center justify-center rounded-full bg-brand px-8 py-3 text-[15px] tracking-[-0.01em] text-white transition"
             >
               Go to dashboard
             </button>
@@ -118,7 +118,7 @@ export default function DashboardSignupPage() {
                 value={form.name}
                 onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                 placeholder="John Doe"
-                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-primary outline-none transition focus:border-primary/35"
+                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-primary outline-none transition focus:border-brand/50"
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -128,7 +128,7 @@ export default function DashboardSignupPage() {
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                 placeholder="john@acme.com"
-                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-primary outline-none transition focus:border-primary/35"
+                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-primary outline-none transition focus:border-brand/50"
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -140,7 +140,7 @@ export default function DashboardSignupPage() {
                 value={form.company}
                 onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
                 placeholder="Acme Inc"
-                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-primary outline-none transition focus:border-primary/35"
+                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-primary outline-none transition focus:border-brand/50"
               />
             </div>
 
@@ -151,7 +151,7 @@ export default function DashboardSignupPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-1 flex min-h-12 items-center justify-center rounded-full bg-primary px-8 py-3 text-[15px] tracking-[-0.01em] text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-1 flex min-h-12 items-center justify-center rounded-full bg-brand px-8 py-3 text-[15px] tracking-[-0.01em] text-white transition disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? "Creating account..." : "Create account"}
             </button>

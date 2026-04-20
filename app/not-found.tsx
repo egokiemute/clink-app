@@ -24,7 +24,7 @@ export default function NotFound() {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/"
-            className="flex min-h-12 items-center justify-center rounded-full bg-primary px-8 py-3 text-center text-[16px] tracking-[-0.01em] text-white!"
+            className="flex min-h-12 items-center justify-center rounded-full bg-brand px-8 py-3 text-center text-[16px] tracking-[-0.01em] text-white!"
           >
             Back home
           </Link>

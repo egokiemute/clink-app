@@ -79,7 +79,7 @@ export default function StartForm() {
           onChange={(event) =>
             setForm((current) => ({ ...current, name: event.target.value }))
           }
-          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-primary/35"
+          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-brand/50"
           placeholder="John Doe"
         />
       </div>
@@ -101,7 +101,7 @@ export default function StartForm() {
           onChange={(event) =>
             setForm((current) => ({ ...current, email: event.target.value }))
           }
-          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-primary/35"
+          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-brand/50"
           placeholder="john@acme.com"
         />
       </div>
@@ -122,7 +122,7 @@ export default function StartForm() {
           onChange={(event) =>
             setForm((current) => ({ ...current, company: event.target.value }))
           }
-          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-primary/35"
+          className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-brand/50"
           placeholder="Acme Inc"
         />
       </div>
@@ -134,7 +134,7 @@ export default function StartForm() {
       ) : null}
 
       {errorMessage ? (
-        <p className="rounded-2xl bg-primary px-4 py-3 text-sm text-white">
+        <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700">
           {errorMessage}
         </p>
       ) : null}
@@ -142,7 +142,7 @@ export default function StartForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-2 flex min-h-12 items-center justify-center rounded-full bg-primary px-8 py-3 text-center text-[16px] tracking-[-0.01em] text-tertiary transition disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-2 flex min-h-12 items-center justify-center rounded-full bg-brand px-8 py-3 text-center text-[16px] tracking-[-0.01em] text-tertiary transition disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting ? "Submitting..." : "Get API key"}
       </button>

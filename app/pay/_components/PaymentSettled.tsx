@@ -70,7 +70,7 @@ export function PaymentSettled({ payment }: { payment: Payment }) {
         <div className="pt-2">
           <a
             href={payment.successUrl}
-            className="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+            className="inline-flex min-h-11 items-center justify-center rounded-xl bg-brand px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
           >
             Return to merchant
           </a>

@@ -49,7 +49,7 @@ export default function PaymentsPage() {
             onClick={() => setFilter(f.value)}
             className={`rounded-full px-4 py-1.5 text-sm transition ${
               filter === f.value
-                ? "bg-primary text-white"
+                ? "bg-brand text-white"
                 : "border border-border bg-white text-primary/60 hover:text-primary"
             }`}
           >

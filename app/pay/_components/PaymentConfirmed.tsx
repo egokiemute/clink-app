@@ -36,7 +36,7 @@ export function PaymentConfirmed({ payment: _ }: { payment: Payment }) {
         {[0, 1, 2].map((i) => (
           <span
             key={i}
-            className="h-2 w-2 rounded-full bg-primary/30"
+            className="h-2 w-2 rounded-full bg-brand/30"
             style={{
               animation: `dot-pulse 1.4s ease-in-out ${i * 0.2}s infinite`,
             }}
