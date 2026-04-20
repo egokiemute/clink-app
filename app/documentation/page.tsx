@@ -504,7 +504,6 @@ const payments = await clink.payments.list({
   "description": "Pro plan subscription",
   "customerEmail": "buyer@example.com",
   "stellarTxHash": "abc123...",
-  "callbackUrl": "https://yourapp.com/webhooks/clink",
   "metadata": { "orderId": "order_123" },
   "expiresAt": "2025-01-01T00:30:00.000Z",
   "createdAt": "2025-01-01T00:00:00.000Z",
@@ -666,8 +665,7 @@ const payments = await clink.payments.list({
                 <p>
                   <strong className="text-primary">Webhook response:</strong>{" "}
                   Always return <InlineCode>200</InlineCode> quickly. Clink
-                  retries failed deliveries up to 3 times with exponential
-                  backoff.
+                  retries failed deliveries up to 3 times.
                 </p>
               </Section>
 
