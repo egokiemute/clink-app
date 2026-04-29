@@ -37,6 +37,46 @@ export default function DashboardOverviewPage() {
 
   if (loading) return <SkeletonOverview />;
 
+  if (developer?.verificationStatus === "pending") {
+    return (
+      <div className="space-y-6">
+        <div>
+          <p className="text-xs uppercase tracking-[0.12em] text-primary/40">Dashboard</p>
+          <h1 className="mt-1 text-2xl font-medium tracking-[-0.04em] text-primary">
+            Welcome, {developer.name.split(" ")[0]}
+          </h1>
+        </div>
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 px-6 py-6">
+          <p className="text-sm font-medium text-amber-800">Application under review</p>
+          <p className="mt-1 text-sm text-amber-700">
+            Your business account is pending approval by our team. You&apos;ll receive an email once it&apos;s been reviewed — usually within 1–2 business days.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (developer?.verificationStatus === "rejected") {
+    return (
+      <div className="space-y-6">
+        <div>
+          <p className="text-xs uppercase tracking-[0.12em] text-primary/40">Dashboard</p>
+          <h1 className="mt-1 text-2xl font-medium tracking-[-0.04em] text-primary">
+            Welcome, {developer.name.split(" ")[0]}
+          </h1>
+        </div>
+        <div className="rounded-2xl border border-red-200 bg-red-50 px-6 py-6">
+          <p className="text-sm font-medium text-red-800">Application not approved</p>
+          <p className="mt-1 text-sm text-red-700">
+            {developer.verificationNote
+              ? developer.verificationNote
+              : "Your application was not approved. Please contact support for more information."}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-8">
       <div>

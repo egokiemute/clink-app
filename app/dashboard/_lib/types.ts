@@ -1,4 +1,5 @@
 export type PaymentStatus = "pending" | "confirmed" | "settled" | "expired" | "failed";
+export type MerchantVerificationStatus = "pending" | "approved" | "rejected";
 
 export interface Payment {
   id: string;
@@ -26,6 +27,12 @@ export interface Developer {
   name: string;
   email: string;
   company?: string;
-  secretKey: string;
+  secretKey?: string;
   createdAt: string;
+  businessName?: string;
+  businessType?: string;
+  country?: string;
+  verificationStatus?: MerchantVerificationStatus;
+  verificationNote?: string;
+  stellarPublicKey?: string;
 }
