@@ -29,12 +29,24 @@ const NAV = [
   },
   {
     href: "/dashboard/settings",
-    label: "API Key",
+    label: "Settings",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <circle cx="6" cy="9" r="3.5" stroke="currentColor" strokeWidth="1.3" />
         <path d="M8.5 6.5l5 -4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
         <path d="M12 4.5l1.5 1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    href: "/documentation",
+    label: "Docs",
+    external: true,
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 2.5h7l3 3V13a.5.5 0 01-.5.5h-9A.5.5 0 013 13V2.5z" stroke="currentColor" strokeWidth="1.3" />
+        <path d="M10 2.5V5.5H13" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5.5 8.5h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -72,7 +84,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </a>
         <nav className="flex flex-1 flex-col gap-1">
           {NAV.map((item) => {
-            const active = pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href));
+            const active = !item.external && (pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href)));
             return (
               <a
                 key={item.href}

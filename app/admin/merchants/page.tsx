@@ -54,12 +54,18 @@ export default function AdminMerchantsPage() {
   async function handleApprove(id: string) {
     setActionLoading(id);
     try {
-      await adminFetch(`/admin/merchants/${id}/approve`, { method: "POST" });
+      const result = await adminFetch<{ merchant: Merchant; warning?: string }>(
+        `/admin/merchants/${id}/approve`,
+        { method: "POST" },
+      );
       setMerchants((prev) =>
         prev.map((m) =>
           m.id === id ? { ...m, verificationStatus: "approved" } : m,
         ),
       );
+      if (result.warning) {
+        alert(`Approved — but: ${result.warning}`);
+      }
     } catch (err) {
       alert(err instanceof Error ? err.message : "Failed to approve merchant");
     } finally {

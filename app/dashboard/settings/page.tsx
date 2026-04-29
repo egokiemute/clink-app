@@ -8,6 +8,7 @@ export default function SettingsPage() {
   const [developer, setDeveloper] = useState<Developer | null>(null);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [copiedWallet, setCopiedWallet] = useState(false);
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
@@ -20,6 +21,13 @@ export default function SettingsPage() {
     await navigator.clipboard.writeText(key);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  }
+
+  async function handleCopyWallet() {
+    if (!developer?.stellarPublicKey) return;
+    await navigator.clipboard.writeText(developer.stellarPublicKey);
+    setCopiedWallet(true);
+    setTimeout(() => setCopiedWallet(false), 2000);
   }
 
   if (loading) return <div className="h-48 animate-pulse rounded-2xl bg-surface-strong" />;
@@ -83,6 +91,37 @@ export default function SettingsPage() {
             <span className="font-medium">Security reminder:</span> This key grants full access to your Clink account. If it&apos;s ever compromised, contact Clink support immediately.
           </p>
         </div>
+      </div>
+
+      <div className="rounded-2xl border border-border bg-white px-6 py-6">
+        <h2 className="mb-1 text-sm font-medium text-primary">Stellar wallet</h2>
+        <p className="mb-4 text-xs text-primary/45">
+          Your dedicated USDC wallet address on the Stellar network. All customer payments route here.
+        </p>
+
+        {developer?.stellarPublicKey ? (
+          <>
+            <div className="flex items-center justify-between rounded-xl border border-border bg-surface px-4 py-3">
+              <p className="min-w-0 flex-1 truncate font-mono text-sm text-primary">
+                {developer.stellarPublicKey}
+              </p>
+              <button
+                onClick={handleCopyWallet}
+                className="ml-3 shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium text-primary/60 transition hover:bg-surface-strong hover:text-primary"
+              >
+                {copiedWallet ? "Copied!" : "Copy"}
+              </button>
+            </div>
+            <p className="mt-3 text-xs text-primary/40">
+              Network: <span className="font-medium text-primary/60">Stellar</span> · Asset: <span className="font-medium text-primary/60">USDC</span>
+            </p>
+          </>
+        ) : (
+          <div className="rounded-xl border border-border bg-surface px-4 py-4 text-center">
+            <p className="text-sm text-primary/40">Wallet not yet assigned</p>
+            <p className="mt-1 text-xs text-primary/30">Your Stellar wallet will appear here once your account is approved.</p>
+          </div>
+        )}
       </div>
     </div>
   );

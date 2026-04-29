@@ -20,6 +20,8 @@ export default function SignupPage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    password: "",
+    confirmPassword: "",
     company: "",
     businessName: "",
     businessType: "",
@@ -30,6 +32,14 @@ export default function SignupPage() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (form.password.length < 8) {
+      setError("Password must be at least 8 characters.");
+      return;
+    }
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
     setIsSubmitting(true);
     setError("");
     try {
@@ -39,6 +49,7 @@ export default function SignupPage() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          password: form.password,
           company: form.company || undefined,
           businessName: form.businessName,
           businessType: form.businessType,
@@ -187,6 +198,33 @@ export default function SignupPage() {
                 value={form.company}
                 onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
                 placeholder="https://acme.com"
+                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-brand/50"
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="password" className="text-sm font-medium tracking-[-0.01em] text-black">
+                Password
+              </label>
+              <input
+                id="password" type="password" required autoComplete="new-password"
+                value={form.password}
+                onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))}
+                placeholder="Min. 8 characters"
+                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-brand/50"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="confirmPassword" className="text-sm font-medium tracking-[-0.01em] text-black">
+                Confirm password
+              </label>
+              <input
+                id="confirmPassword" type="password" required autoComplete="new-password"
+                value={form.confirmPassword}
+                onChange={(e) => setForm((f) => ({ ...f, confirmPassword: e.target.value }))}
+                placeholder="Repeat password"
                 className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-base text-black outline-none transition focus:border-brand/50"
               />
             </div>

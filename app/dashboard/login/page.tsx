@@ -2,30 +2,35 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { saveKey, apiFetch } from "../_lib/api";
-import type { Developer } from "../_lib/types";
+import { saveKey } from "../_lib/api";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://api.tryclink.com";
 
 export default function DashboardLoginPage() {
   const router = useRouter();
-  const [secretKey, setSecretKey] = useState("");
+  const [form, setForm] = useState({ email: "", password: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!secretKey.startsWith("clink_sk_")) {
-      setError("Secret key must start with clink_sk_");
-      return;
-    }
     setIsSubmitting(true);
     setError("");
     try {
-      saveKey(secretKey);
-      await apiFetch<Developer>("/me");
+      const res = await fetch(`${API_URL}/developers/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: form.email, password: form.password }),
+      });
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        setError(data?.message ?? "Invalid email or password.");
+        return;
+      }
+      saveKey(data.developer.secretKey);
       router.replace("/dashboard");
     } catch {
-      setError("Invalid secret key. Check it and try again.");
-      import("../_lib/api").then(({ clearKey }) => clearKey());
+      setError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -42,24 +47,41 @@ export default function DashboardLoginPage() {
             Sign in to dashboard
           </h1>
           <p className="mt-2 text-sm text-primary/50">
-            Enter your secret key to access your payments.
+            Enter your email and password to continue.
           </p>
         </div>
 
         <div className="rounded-2xl border border-border bg-white px-6 py-8 shadow-sm">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <label htmlFor="key" className="text-sm font-medium tracking-[-0.01em] text-primary">
-                Secret key
+              <label htmlFor="email" className="text-sm font-medium tracking-[-0.01em] text-primary">
+                Email
               </label>
               <input
-                id="key"
+                id="email"
+                type="email"
+                required
+                autoComplete="email"
+                value={form.email}
+                onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                placeholder="john@acme.com"
+                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-primary outline-none transition focus:border-brand/50"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label htmlFor="password" className="text-sm font-medium tracking-[-0.01em] text-primary">
+                Password
+              </label>
+              <input
+                id="password"
                 type="password"
                 required
-                value={secretKey}
-                onChange={(e) => setSecretKey(e.target.value)}
-                placeholder="clink_sk_..."
-                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 font-mono text-sm text-primary outline-none transition focus:border-brand/50"
+                autoComplete="current-password"
+                value={form.password}
+                onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))}
+                placeholder="••••••••"
+                className="min-h-13 rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-primary outline-none transition focus:border-brand/50"
               />
             </div>
 
@@ -72,14 +94,14 @@ export default function DashboardLoginPage() {
               disabled={isSubmitting}
               className="mt-1 flex min-h-12 items-center justify-center rounded-full bg-brand px-8 py-3 text-[15px] tracking-[-0.01em] text-white transition disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {isSubmitting ? "Verifying..." : "Sign in"}
+              {isSubmitting ? "Signing in..." : "Sign in"}
             </button>
           </form>
 
           <p className="mt-6 text-center text-sm text-primary/50">
             Don&apos;t have an account?{" "}
             <a href="/signup" className="font-medium text-primary underline underline-offset-4">
-              Create one
+              Apply for access
             </a>
           </p>
         </div>
