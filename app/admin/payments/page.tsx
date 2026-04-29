@@ -21,7 +21,8 @@ const FILTERS: { label: string; value: PaymentStatus | "all" }[] = [
   { label: "Failed", value: "failed" },
 ];
 
-const STELLAR_EXPLORER = "https://stellar.expert/explorer/public/tx";
+const STELLAR_NETWORK = process.env.NEXT_PUBLIC_STELLAR_NETWORK === "testnet" ? "testnet" : "public";
+const STELLAR_EXPLORER = `https://stellar.expert/explorer/${STELLAR_NETWORK}/tx`;
 
 export default function AdminPaymentsPage() {
   const [payments, setPayments] = useState<Payment[]>([]);

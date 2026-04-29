@@ -13,7 +13,8 @@ const STATUS_COLORS: Record<string, string> = {
   failed: "bg-red-100 text-red-700",
 };
 
-const STELLAR_EXPLORER = "https://stellar.expert/explorer/public/tx";
+const STELLAR_NETWORK = process.env.NEXT_PUBLIC_STELLAR_NETWORK === "testnet" ? "testnet" : "public";
+const STELLAR_EXPLORER = `https://stellar.expert/explorer/${STELLAR_NETWORK}/tx`;
 
 export default function PaymentDetailPage() {
   const { id } = useParams<{ id: string }>();

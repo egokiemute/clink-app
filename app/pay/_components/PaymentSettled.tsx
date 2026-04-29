@@ -1,6 +1,7 @@
 import type { Payment } from "../_lib/types";
 
-const STELLAR_EXPLORER = "https://stellar.expert/explorer/public/tx";
+const STELLAR_NETWORK = process.env.NEXT_PUBLIC_STELLAR_NETWORK === "testnet" ? "testnet" : "public";
+const STELLAR_EXPLORER = `https://stellar.expert/explorer/${STELLAR_NETWORK}/tx`;
 
 export function PaymentSettled({ payment }: { payment: Payment }) {
   return (
