@@ -19,7 +19,7 @@ const partners = [
 export default function Home() {
   return (
     <>
-      <div className="p-2 md:p-5 bg-white! overflow-hidden min-h-screen flex flex-col">
+      <div className="p-2 md:p-5 bg-white! overflow-hidden flex flex-col">
         <main className="relative z-10 mx-auto flex w-full flex-1 flex-col px-4 md:px-6 py-6 lg:px-10 lg:py-8 bg-[#FEF2F0] rounded-sm">
           <header className="md:mb-12 flex items-center justify-between z-50 bg-white rounded-full py-3 px-4 md:px-6 w-full max-w-7xl mx-auto">
             <Image
@@ -39,7 +39,7 @@ export default function Home() {
                 </span>
               </Link>
               <Link
-                href="/start"
+                href="/signup"
                 className="hidden md:inline-block rounded-full bg-brand py-2 px-8 w-fit text-xs text-center my-auto tracking-[0.18em] text-tertiary"
               >
                 <span className="text-white text-[17.2px] tracking-[-1%] leading-[25.8px]">
@@ -62,7 +62,7 @@ export default function Home() {
 
               <div className="mt-8 flex items-center gap-4">
                 <Link
-                  href="/start"
+                  href="/signup"
                   className="rounded-full bg-brand py-3 px-8 w-fit text-xs text-center my-auto tracking-[0.18em] text-tertiary"
                 >
                   <span className="text-white text-[17.2px] tracking-[-1%] leading-[25.8px]">

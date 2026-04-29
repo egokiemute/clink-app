@@ -64,7 +64,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   if (isAuthPage) return <>{children}</>;
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-dvh">
       {/* Sidebar */}
       <aside className="hidden w-56 shrink-0 flex-col border-r border-border bg-white px-4 py-6 md:flex">
         <a href="https://tryclink.com" className="mb-8 px-2 text-sm font-medium tracking-[-0.03em] text-primary">

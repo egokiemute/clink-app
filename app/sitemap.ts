@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${siteUrl}/opengraph-image`],
     },
     {
-      url: `${siteUrl}/start`,
+      url: `${siteUrl}/signup`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,

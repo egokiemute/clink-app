@@ -60,7 +60,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   if (isLoginPage) return <>{children}</>;
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-dvh">
       <aside className="hidden w-56 shrink-0 flex-col border-r border-border bg-white px-4 py-6 md:flex">
         <div className="mb-8 px-2">
           <p className="text-sm font-medium tracking-[-0.03em] text-primary">Clink</p>

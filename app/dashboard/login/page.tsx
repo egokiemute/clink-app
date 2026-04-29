@@ -32,7 +32,7 @@ export default function DashboardLoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center px-4 py-12">
+    <main className="flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
           <a href="https://tryclink.com" className="text-sm font-medium tracking-[-0.03em] text-primary/60 transition hover:text-primary">
@@ -78,7 +78,7 @@ export default function DashboardLoginPage() {
 
           <p className="mt-6 text-center text-sm text-primary/50">
             Don&apos;t have an account?{" "}
-            <a href="/dashboard/signup" className="font-medium text-primary underline underline-offset-4">
+            <a href="/signup" className="font-medium text-primary underline underline-offset-4">
               Create one
             </a>
           </p>

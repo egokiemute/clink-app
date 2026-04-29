@@ -37,7 +37,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center px-4 py-12">
+    <main className="flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
           <p className="text-sm font-medium tracking-[-0.03em] text-primary/60">Clink</p>

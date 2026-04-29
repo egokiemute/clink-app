@@ -187,7 +187,7 @@ function SidebarItem({
 
 export default function DocumentationPage() {
   return (
-    <main className="min-h-screen bg-background text-primary">
+    <main className="bg-background text-primary">
       <header className="sticky top-0 z-30 border-b border-border bg-tertiary/95 backdrop-blur">
         <div className="mx-auto flex w-full max-w-360 items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8">
